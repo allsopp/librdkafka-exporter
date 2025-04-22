@@ -7,7 +7,7 @@
     "outbuf_cnt": "Number of requests awaiting transmission to broker.",
     "outbuf_latency": "Internal request queue latency in microseconds. This is the time between a request is enqueued on the transmit (outbuf) queue and the time the request is written to the TCP socket. Additional buffering and latency may be incurred by the TCP stack and network.",
     "outbuf_msg_cnt": "Number of messages awaiting transmission to broker.",
-	"req": "Request type counters.",
+    "req": "Request type counters.",
     "req_timeouts": "Total number of requests timed out.",
     "rtt": "Broker latency / round-trip time in microseconds.",
     "rx": "Total number of responses received.",
@@ -28,9 +28,9 @@
     "zbuf_grow": "Total number of decompression buffer size increases."
   },
   "cgrp": {
+    "assignment_size": "Current assignment's partition count.",
     "rebalance_age": "Time elapsed since last rebalance (assign or revoke) (milliseconds).",
-	"rebalance_cnt": "Total number of rebalances (assign or revoke).",
-	"assignment_size": "Current assignment's partition count."
+    "rebalance_cnt": "Total number of rebalances (assign or revoke)."
   },
   "metadata_cache_cnt": "Number of topics in the metadata cache.",
   "msg_cnt": "Current number of messages in producer queues.",
