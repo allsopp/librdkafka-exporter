@@ -1,0 +1,10 @@
+# HELP foo_bar_baz An example help message
+# TYPE foo_bar_baz summary
+foo_bar_baz{name="qux",quantile="0.5"} 10
+foo_bar_baz{name="qux",quantile="0.75"} 20
+foo_bar_baz{name="qux",quantile="0.9"} 30
+foo_bar_baz{name="qux",quantile="0.95"} 40
+foo_bar_baz{name="qux",quantile="0.99"} 50
+foo_bar_baz{name="qux",quantile="0.9999"} 60
+foo_bar_baz_sum{name="qux"} 1000
+foo_bar_baz_count{name="qux"} 10

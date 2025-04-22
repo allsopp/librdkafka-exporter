@@ -1,0 +1,36 @@
+# TYPE age counter
+age{client_id="client_id",type="type"} 1
+# TYPE metadata_cache_cnt gauge
+metadata_cache_cnt{client_id="client_id",type="type"} 2
+# TYPE msg_cnt gauge
+msg_cnt{client_id="client_id",type="type"} 3
+# TYPE msg_max counter
+msg_max{client_id="client_id",type="type"} 4
+# TYPE msg_size gauge
+msg_size{client_id="client_id",type="type"} 5
+# TYPE msg_size_max counter
+msg_size_max{client_id="client_id",type="type"} 6
+# TYPE replyq gauge
+replyq{client_id="client_id",type="type"} 7
+# TYPE rx_bytes counter
+rx_bytes{client_id="client_id",type="type"} 8
+# TYPE rx counter
+rx{client_id="client_id",type="type"} 9
+# TYPE rxmsg_bytes counter
+rxmsg_bytes{client_id="client_id",type="type"} 10
+# TYPE rxmsgs counter
+rxmsgs{client_id="client_id",type="type"} 11
+# TYPE simple_cnt gauge
+simple_cnt{client_id="client_id",type="type"} 12
+# TYPE time counter
+time{client_id="client_id",type="type"} 13
+# TYPE ts counter
+ts{client_id="client_id",type="type"} 14
+# TYPE tx_bytes counter
+tx_bytes{client_id="client_id",type="type"} 15
+# TYPE tx counter
+tx{client_id="client_id",type="type"} 16
+# TYPE txmsg_bytes counter
+txmsg_bytes{client_id="client_id",type="type"} 17
+# TYPE txmsgs counter
+txmsgs{client_id="client_id",type="type"} 18

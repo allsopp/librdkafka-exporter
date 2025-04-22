@@ -1,0 +1,4 @@
+# TYPE foo counter
+foo{broker="bar",req="qux"} 1
+foo{broker="bar",req="quux"} 2
+foo{broker="bar",req="quuux"} 3

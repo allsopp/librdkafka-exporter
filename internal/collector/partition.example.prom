@@ -1,0 +1,60 @@
+# TYPE partitions_acked_msgid counter
+partitions_acked_msgid{partition="100",topic="example-topic"} 1
+# TYPE partitions_app_offset gauge
+partitions_app_offset{partition="100",topic="example-topic"} 2
+# TYPE partitions_committed_leader_epoch counter
+partitions_committed_leader_epoch{partition="100",topic="example-topic"} 3
+# TYPE partitions_committed_offset gauge
+partitions_committed_offset{partition="100",topic="example-topic"} 4
+# TYPE partitions_consumer_lag gauge
+partitions_consumer_lag{partition="100",topic="example-topic"} 5
+# TYPE partitions_consumer_lag_stored gauge
+partitions_consumer_lag_stored{partition="100",topic="example-topic"} 6
+# TYPE partitions_eof_offset gauge
+partitions_eof_offset{partition="100",topic="example-topic"} 7
+# TYPE partitions_fetchq_cnt gauge
+partitions_fetchq_cnt{partition="100",topic="example-topic"} 8
+# TYPE partitions_fetchq_size gauge
+partitions_fetchq_size{partition="100",topic="example-topic"} 9
+# TYPE partitions_hi_offset gauge
+partitions_hi_offset{partition="100",topic="example-topic"} 10
+# TYPE partitions_leader_epoch counter
+partitions_leader_epoch{partition="100",topic="example-topic"} 11
+# TYPE partitions_lo_offset gauge
+partitions_lo_offset{partition="100",topic="example-topic"} 12
+# TYPE partitions_ls_offset gauge
+partitions_ls_offset{partition="100",topic="example-topic"} 13
+# TYPE partitions_msgq_bytes gauge
+partitions_msgq_bytes{partition="100",topic="example-topic"} 14
+# TYPE partitions_msgq_cnt gauge
+partitions_msgq_cnt{partition="100",topic="example-topic"} 15
+# TYPE partitions_msgs counter
+partitions_msgs{partition="100",topic="example-topic"} 16
+# TYPE partitions_msgs_inflight gauge
+partitions_msgs_inflight{partition="100",topic="example-topic"} 17
+# TYPE partitions_next_ack_seq gauge
+partitions_next_ack_seq{partition="100",topic="example-topic"} 18
+# TYPE partitions_next_err_seq gauge
+partitions_next_err_seq{partition="100",topic="example-topic"} 19
+# TYPE partitions_next_offset gauge
+partitions_next_offset{partition="100",topic="example-topic"} 20
+# TYPE partitions_query_offset gauge
+partitions_query_offset{partition="100",topic="example-topic"} 21
+# TYPE partitions_rx_ver_drops counter
+partitions_rx_ver_drops{partition="100",topic="example-topic"} 24
+# TYPE partitions_rxbytes counter
+partitions_rxbytes{partition="100",topic="example-topic"} 22
+# TYPE partitions_rxmsgs counter
+partitions_rxmsgs{partition="100",topic="example-topic"} 23
+# TYPE partitions_stored_leader_epoch counter
+partitions_stored_leader_epoch{partition="100",topic="example-topic"} 25
+# TYPE partitions_stored_offset gauge
+partitions_stored_offset{partition="100",topic="example-topic"} 26
+# TYPE partitions_txbytes counter
+partitions_txbytes{partition="100",topic="example-topic"} 27
+# TYPE partitions_txmsgs counter
+partitions_txmsgs{partition="100",topic="example-topic"} 28
+# TYPE partitions_xmit_msgq_bytes gauge
+partitions_xmit_msgq_bytes{partition="100",topic="example-topic"} 29
+# TYPE partitions_xmit_msgq_cnt gauge
+partitions_xmit_msgq_cnt{partition="100",topic="example-topic"} 30

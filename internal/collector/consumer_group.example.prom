@@ -1,0 +1,6 @@
+# TYPE cgrp_assignment_size gauge
+cgrp_assignment_size 1
+# TYPE cgrp_rebalance_cnt counter
+cgrp_rebalance_cnt 3
+# TYPE cgrp_rebalance_age gauge
+cgrp_rebalance_age 2

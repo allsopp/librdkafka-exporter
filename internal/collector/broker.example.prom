@@ -1,0 +1,40 @@
+# TYPE brokers_connects counter
+brokers_connects{name="name",nodename="node",source="source"} 1
+# TYPE brokers_disconnects counter
+brokers_disconnects{name="name",nodename="node",source="source"} 2
+# TYPE brokers_outbuf_cnt gauge
+brokers_outbuf_cnt{name="name",nodename="node",source="source"} 3
+# TYPE brokers_outbuf_msg_cnt gauge
+brokers_outbuf_msg_cnt{name="name",nodename="node",source="source"} 4
+# TYPE brokers_req_timeouts counter
+brokers_req_timeouts{name="name",nodename="node",source="source"} 5
+# TYPE brokers_rxbytes counter
+brokers_rxbytes{name="name",nodename="node",source="source"} 6
+# TYPE brokers_rxcorriderrs counter
+brokers_rxcorriderrs{name="name",nodename="node",source="source"} 7
+# TYPE brokers_rxerrs counter
+brokers_rxerrs{name="name",nodename="node",source="source"} 8
+# TYPE brokers_rx counter
+brokers_rx{name="name",nodename="node",source="source"} 9
+# TYPE brokers_rxidle counter
+brokers_rxidle{name="name",nodename="node",source="source"} 10
+# TYPE brokers_rxpartial counter
+brokers_rxpartial{name="name",nodename="node",source="source"} 11
+# TYPE brokers_txbytes counter
+brokers_txbytes{name="name",nodename="node",source="source"} 12
+# TYPE brokers_txerrs counter
+brokers_txerrs{name="name",nodename="node",source="source"} 13
+# TYPE brokers_tx counter
+brokers_tx{name="name",nodename="node",source="source"} 14
+# TYPE brokers_txidle counter
+brokers_txidle{name="name",nodename="node",source="source"} 15
+# TYPE brokers_txretries counter
+brokers_txretries{name="name",nodename="node",source="source"} 16
+# TYPE brokers_waitresp_cnt gauge
+brokers_waitresp_cnt{name="name",nodename="node",source="source"} 17
+# TYPE brokers_waitresp_msg_cnt gauge
+brokers_waitresp_msg_cnt{name="name",nodename="node",source="source"} 18
+# TYPE brokers_wakeups counter
+brokers_wakeups{name="name",nodename="node",source="source"} 19
+# TYPE brokers_zbuf_grow counter
+brokers_zbuf_grow{name="name",nodename="node",source="source"} 20

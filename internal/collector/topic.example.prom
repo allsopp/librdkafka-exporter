@@ -1,0 +1,4 @@
+# TYPE topics_age gauge
+topics_age{topic="topic"} 1
+# TYPE topics_metadata_age gauge
+topics_metadata_age{topic="topic"} 2

@@ -1,0 +1,459 @@
+# HELP age Time since this client instance was created (microseconds)
+# TYPE age counter
+age{client_id="rdkafka",type="consumer"} 7.2023609e+07
+# HELP brokers_connects Number of connection attempts, including successful and failed, and name resolution failures.
+# TYPE brokers_connects counter
+brokers_connects{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 1
+brokers_connects{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 1
+# HELP brokers_disconnects Number of disconnects (triggered by broker, network, load-balancer, etc.).
+# TYPE brokers_disconnects counter
+brokers_disconnects{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_disconnects{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_int_latency Internal producer queue latency in microseconds.
+# TYPE brokers_int_latency summary
+brokers_int_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.5"} 0
+brokers_int_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.75"} 0
+brokers_int_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9"} 0
+brokers_int_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.95"} 0
+brokers_int_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.99"} 0
+brokers_int_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9999"} 0
+brokers_int_latency_sum{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_int_latency_count{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_int_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.5"} 0
+brokers_int_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.75"} 0
+brokers_int_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9"} 0
+brokers_int_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.95"} 0
+brokers_int_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.99"} 0
+brokers_int_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9999"} 0
+brokers_int_latency_sum{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+brokers_int_latency_count{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_outbuf_cnt Number of requests awaiting transmission to broker.
+# TYPE brokers_outbuf_cnt gauge
+brokers_outbuf_cnt{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_outbuf_cnt{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_outbuf_latency Internal request queue latency in microseconds. This is the time between a request is enqueued on the transmit (outbuf) queue and the time the request is written to the TCP socket. Additional buffering and latency may be incurred by the TCP stack and network.
+# TYPE brokers_outbuf_latency summary
+brokers_outbuf_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.5"} 0
+brokers_outbuf_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.75"} 0
+brokers_outbuf_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9"} 0
+brokers_outbuf_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.95"} 0
+brokers_outbuf_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.99"} 0
+brokers_outbuf_latency{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9999"} 0
+brokers_outbuf_latency_sum{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_outbuf_latency_count{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_outbuf_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.5"} 54
+brokers_outbuf_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.75"} 65
+brokers_outbuf_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9"} 65
+brokers_outbuf_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.95"} 65
+brokers_outbuf_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.99"} 65
+brokers_outbuf_latency{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9999"} 65
+brokers_outbuf_latency_sum{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 119
+brokers_outbuf_latency_count{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 2
+# HELP brokers_outbuf_msg_cnt Number of messages awaiting transmission to broker.
+# TYPE brokers_outbuf_msg_cnt gauge
+brokers_outbuf_msg_cnt{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_outbuf_msg_cnt{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_req Request type counters.
+# TYPE brokers_req counter
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="ApiVersion",source="logical"} 1
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="DescribeCluster",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="DescribeProducers",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="DescribeTransactions",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="Fetch",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="FindCoordinator",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="Heartbeat",source="logical"} 14
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="JoinGroup",source="logical"} 2
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="LeaveGroup",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="ListOffsets",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="ListTransactions",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="Metadata",source="logical"} 2
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="OffsetCommit",source="logical"} 1
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="OffsetFetch",source="logical"} 1
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="SaslAuthenticate",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="SaslHandshake",source="logical"} 0
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="SyncGroup",source="logical"} 1
+brokers_req{name="GroupCoordinator",nodename="localhost:9092",req="Unknown-62?",source="logical"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="ApiVersion",source="configured"} 1
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="DescribeCluster",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="DescribeProducers",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="DescribeTransactions",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="Fetch",source="configured"} 82
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="FindCoordinator",source="configured"} 2
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="Heartbeat",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="JoinGroup",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="LeaveGroup",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="ListOffsets",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="ListTransactions",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="Metadata",source="configured"} 2
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="OffsetCommit",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="OffsetFetch",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="SaslAuthenticate",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="SaslHandshake",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="SyncGroup",source="configured"} 0
+brokers_req{name="localhost:9092/1",nodename="localhost:9092",req="Unknown-62?",source="configured"} 0
+# HELP brokers_req_timeouts Total number of requests timed out.
+# TYPE brokers_req_timeouts counter
+brokers_req_timeouts{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_req_timeouts{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_rtt Broker latency / round-trip time in microseconds.
+# TYPE brokers_rtt summary
+brokers_rtt{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.5"} 0
+brokers_rtt{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.75"} 0
+brokers_rtt{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9"} 0
+brokers_rtt{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.95"} 0
+brokers_rtt{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.99"} 0
+brokers_rtt{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9999"} 0
+brokers_rtt_sum{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_rtt_count{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_rtt{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.5"} 501759
+brokers_rtt{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.75"} 501759
+brokers_rtt{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9"} 501759
+brokers_rtt{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.95"} 501759
+brokers_rtt{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.99"} 501759
+brokers_rtt{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9999"} 501759
+brokers_rtt_sum{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 1.003153e+06
+brokers_rtt_count{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 2
+# HELP brokers_rx Total number of responses received.
+# TYPE brokers_rx counter
+brokers_rx{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 22
+brokers_rx{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 86
+# HELP brokers_rxbytes Total number of bytes received.
+# TYPE brokers_rxbytes counter
+brokers_rxbytes{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 1427
+brokers_rxbytes{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 1.229847e+06
+# HELP brokers_rxcorriderrs Total number of unmatched correlation ids in response (typically for timed out requests).
+# TYPE brokers_rxcorriderrs counter
+brokers_rxcorriderrs{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_rxcorriderrs{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_rxerrs Total number of receive errors.
+# TYPE brokers_rxerrs counter
+brokers_rxerrs{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_rxerrs{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_rxidle Microseconds since last socket receive (or -1 if no receives yet for current connection).
+# TYPE brokers_rxidle counter
+brokers_rxidle{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 1.020246e+06
+brokers_rxidle{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 393819
+# HELP brokers_rxpartial Total number of partial MessageSets received. The broker may return partial responses if the full MessageSet could not fit in the remaining Fetch response size.
+# TYPE brokers_rxpartial counter
+brokers_rxpartial{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_rxpartial{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_throttle Broker throttling time in milliseconds.
+# TYPE brokers_throttle summary
+brokers_throttle{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.5"} 0
+brokers_throttle{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.75"} 0
+brokers_throttle{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9"} 0
+brokers_throttle{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.95"} 0
+brokers_throttle{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.99"} 0
+brokers_throttle{name="GroupCoordinator",nodename="localhost:9092",source="logical",quantile="0.9999"} 0
+brokers_throttle_sum{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_throttle_count{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_throttle{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.5"} 0
+brokers_throttle{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.75"} 0
+brokers_throttle{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9"} 0
+brokers_throttle{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.95"} 0
+brokers_throttle{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.99"} 0
+brokers_throttle{name="localhost:9092/1",nodename="localhost:9092",source="configured",quantile="0.9999"} 0
+brokers_throttle_sum{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+brokers_throttle_count{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_tx Total number of requests sent.
+# TYPE brokers_tx counter
+brokers_tx{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 22
+brokers_tx{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 87
+# HELP brokers_txbytes Total number of bytes sent.
+# TYPE brokers_txbytes counter
+brokers_txbytes{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 2217
+brokers_txbytes{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 12713
+# HELP brokers_txerrs Total number of transmission errors.
+# TYPE brokers_txerrs counter
+brokers_txerrs{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_txerrs{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_txidle Microseconds since last socket send (or -1 if no sends yet for current connection).
+# TYPE brokers_txidle counter
+brokers_txidle{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 1.021525e+06
+brokers_txidle{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 393732
+# HELP brokers_txretries Total number of request retries.
+# TYPE brokers_txretries counter
+brokers_txretries{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_txretries{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_waitresp_cnt Number of requests in-flight to broker awaiting response.
+# TYPE brokers_waitresp_cnt gauge
+brokers_waitresp_cnt{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_waitresp_cnt{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 1
+# HELP brokers_waitresp_msg_cnt Number of messages in-flight to broker awaiting response.
+# TYPE brokers_waitresp_msg_cnt gauge
+brokers_waitresp_msg_cnt{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_waitresp_msg_cnt{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP brokers_wakeups Broker thread poll loop wakeups.
+# TYPE brokers_wakeups counter
+brokers_wakeups{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 122
+brokers_wakeups{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 253
+# HELP brokers_zbuf_grow Total number of decompression buffer size increases.
+# TYPE brokers_zbuf_grow counter
+brokers_zbuf_grow{name="GroupCoordinator",nodename="localhost:9092",source="logical"} 0
+brokers_zbuf_grow{name="localhost:9092/1",nodename="localhost:9092",source="configured"} 0
+# HELP cgrp_assignment_size Current assignment's partition count.
+# TYPE cgrp_assignment_size gauge
+cgrp_assignment_size 3
+# HELP cgrp_rebalance_age Time elapsed since last rebalance (assign or revoke) (milliseconds).
+# TYPE cgrp_rebalance_age gauge
+cgrp_rebalance_age 40039
+# HELP cgrp_rebalance_cnt Total number of rebalances (assign or revoke).
+# TYPE cgrp_rebalance_cnt counter
+cgrp_rebalance_cnt 1
+# HELP metadata_cache_cnt Number of topics in the metadata cache.
+# TYPE metadata_cache_cnt gauge
+metadata_cache_cnt{client_id="rdkafka",type="consumer"} 1
+# HELP msg_cnt Current number of messages in producer queues.
+# TYPE msg_cnt gauge
+msg_cnt{client_id="rdkafka",type="consumer"} 0
+# HELP msg_max Threshold: maximum number of messages allowed allowed on the producer queues.
+# TYPE msg_max counter
+msg_max{client_id="rdkafka",type="consumer"} 0
+# HELP msg_size Current total size of messages in producer queues.
+# TYPE msg_size gauge
+msg_size{client_id="rdkafka",type="consumer"} 0
+# HELP msg_size_max Threshold: maximum total size of messages allowed on the producer queues.
+# TYPE msg_size_max counter
+msg_size_max{client_id="rdkafka",type="consumer"} 0
+# HELP partitions_acked_msgid Last acked internal message id (idempotent producer).
+# TYPE partitions_acked_msgid counter
+partitions_acked_msgid{partition="-1",topic="example"} 0
+partitions_acked_msgid{partition="0",topic="example"} 0
+partitions_acked_msgid{partition="1",topic="example"} 0
+partitions_acked_msgid{partition="2",topic="example"} 0
+# HELP partitions_app_offset Offset of last message passed to application + 1.
+# TYPE partitions_app_offset gauge
+partitions_app_offset{partition="-1",topic="example"} -1001
+partitions_app_offset{partition="0",topic="example"} 502316
+partitions_app_offset{partition="1",topic="example"} 381691
+partitions_app_offset{partition="2",topic="example"} 400983
+# HELP partitions_committed_leader_epoch Partition leader epoch of committed offset.
+# TYPE partitions_committed_leader_epoch counter
+partitions_committed_leader_epoch{partition="-1",topic="example"} -1
+partitions_committed_leader_epoch{partition="0",topic="example"} 0
+partitions_committed_leader_epoch{partition="1",topic="example"} 0
+partitions_committed_leader_epoch{partition="2",topic="example"} 0
+# HELP partitions_committed_offset Last committed offset.
+# TYPE partitions_committed_offset gauge
+partitions_committed_offset{partition="-1",topic="example"} -1001
+partitions_committed_offset{partition="0",topic="example"} 502316
+partitions_committed_offset{partition="1",topic="example"} 381691
+partitions_committed_offset{partition="2",topic="example"} 400983
+# HELP partitions_consumer_lag Difference between (hi_offset or ls_offset) and committed_offset). hi_offset is used when isolation.level=read_uncommitted, otherwise ls_offset.
+# TYPE partitions_consumer_lag gauge
+partitions_consumer_lag{partition="-1",topic="example"} -1
+partitions_consumer_lag{partition="0",topic="example"} 0
+partitions_consumer_lag{partition="1",topic="example"} 0
+partitions_consumer_lag{partition="2",topic="example"} 0
+# HELP partitions_consumer_lag_stored Difference between (hi_offset or ls_offset) and stored_offset. See consumer_lag and stored_offset.
+# TYPE partitions_consumer_lag_stored gauge
+partitions_consumer_lag_stored{partition="-1",topic="example"} -1
+partitions_consumer_lag_stored{partition="0",topic="example"} 0
+partitions_consumer_lag_stored{partition="1",topic="example"} 0
+partitions_consumer_lag_stored{partition="2",topic="example"} 0
+# HELP partitions_eof_offset Last PARTITION_EOF signaled offset.
+# TYPE partitions_eof_offset gauge
+partitions_eof_offset{partition="-1",topic="example"} -1001
+partitions_eof_offset{partition="0",topic="example"} 502316
+partitions_eof_offset{partition="1",topic="example"} 381691
+partitions_eof_offset{partition="2",topic="example"} 400983
+# HELP partitions_fetchq_cnt Number of pre-fetched messages in fetch queue.
+# TYPE partitions_fetchq_cnt gauge
+partitions_fetchq_cnt{partition="-1",topic="example"} 0
+partitions_fetchq_cnt{partition="0",topic="example"} 0
+partitions_fetchq_cnt{partition="1",topic="example"} 0
+partitions_fetchq_cnt{partition="2",topic="example"} 0
+# HELP partitions_fetchq_size Bytes in fetchq.
+# TYPE partitions_fetchq_size gauge
+partitions_fetchq_size{partition="-1",topic="example"} 0
+partitions_fetchq_size{partition="0",topic="example"} 0
+partitions_fetchq_size{partition="1",topic="example"} 0
+partitions_fetchq_size{partition="2",topic="example"} 0
+# HELP partitions_hi_offset Partition's high watermark offset on broker.
+# TYPE partitions_hi_offset gauge
+partitions_hi_offset{partition="-1",topic="example"} -1001
+partitions_hi_offset{partition="0",topic="example"} 502316
+partitions_hi_offset{partition="1",topic="example"} 381691
+partitions_hi_offset{partition="2",topic="example"} 400983
+# HELP partitions_leader_epoch Last known partition leader epoch, or -1 if unknown.
+# TYPE partitions_leader_epoch counter
+partitions_leader_epoch{partition="-1",topic="example"} -1
+partitions_leader_epoch{partition="0",topic="example"} -1
+partitions_leader_epoch{partition="1",topic="example"} -1
+partitions_leader_epoch{partition="2",topic="example"} -1
+# HELP partitions_lo_offset Partition's low watermark offset on broker.
+# TYPE partitions_lo_offset gauge
+partitions_lo_offset{partition="-1",topic="example"} -1001
+partitions_lo_offset{partition="0",topic="example"} 0
+partitions_lo_offset{partition="1",topic="example"} 0
+partitions_lo_offset{partition="2",topic="example"} 0
+# HELP partitions_ls_offset Partition's last stable offset on broker, or same as hi_offset is broker version is less than 0.11.0.0.
+# TYPE partitions_ls_offset gauge
+partitions_ls_offset{partition="-1",topic="example"} -1001
+partitions_ls_offset{partition="0",topic="example"} 502316
+partitions_ls_offset{partition="1",topic="example"} 381691
+partitions_ls_offset{partition="2",topic="example"} 400983
+# HELP partitions_msgq_bytes Number of bytes in msgq_cnt.
+# TYPE partitions_msgq_bytes gauge
+partitions_msgq_bytes{partition="-1",topic="example"} 0
+partitions_msgq_bytes{partition="0",topic="example"} 0
+partitions_msgq_bytes{partition="1",topic="example"} 0
+partitions_msgq_bytes{partition="2",topic="example"} 0
+# HELP partitions_msgq_cnt Number of messages waiting to be produced in first-level queue.
+# TYPE partitions_msgq_cnt gauge
+partitions_msgq_cnt{partition="-1",topic="example"} 0
+partitions_msgq_cnt{partition="0",topic="example"} 0
+partitions_msgq_cnt{partition="1",topic="example"} 0
+partitions_msgq_cnt{partition="2",topic="example"} 0
+# HELP partitions_msgs Total number of messages received (consumer, same as rxmsgs), or total number of messages produced (possibly not yet transmitted) (producer).
+# TYPE partitions_msgs counter
+partitions_msgs{partition="-1",topic="example"} 0
+partitions_msgs{partition="0",topic="example"} 70907
+partitions_msgs{partition="1",topic="example"} 2692
+partitions_msgs{partition="2",topic="example"} 26401
+# HELP partitions_msgs_inflight Current number of messages in-flight to/from broker.
+# TYPE partitions_msgs_inflight gauge
+partitions_msgs_inflight{partition="-1",topic="example"} 0
+partitions_msgs_inflight{partition="0",topic="example"} 0
+partitions_msgs_inflight{partition="1",topic="example"} 0
+partitions_msgs_inflight{partition="2",topic="example"} 0
+# HELP partitions_next_ack_seq Next expected acked sequence (idempotent producer).
+# TYPE partitions_next_ack_seq gauge
+partitions_next_ack_seq{partition="-1",topic="example"} 0
+partitions_next_ack_seq{partition="0",topic="example"} 0
+partitions_next_ack_seq{partition="1",topic="example"} 0
+partitions_next_ack_seq{partition="2",topic="example"} 0
+# HELP partitions_next_err_seq Next expected errored sequence (idempotent producer).
+# TYPE partitions_next_err_seq gauge
+partitions_next_err_seq{partition="-1",topic="example"} 0
+partitions_next_err_seq{partition="0",topic="example"} 0
+partitions_next_err_seq{partition="1",topic="example"} 0
+partitions_next_err_seq{partition="2",topic="example"} 0
+# HELP partitions_next_offset Next offset to fetch.
+# TYPE partitions_next_offset gauge
+partitions_next_offset{partition="-1",topic="example"} 0
+partitions_next_offset{partition="0",topic="example"} 502316
+partitions_next_offset{partition="1",topic="example"} 381691
+partitions_next_offset{partition="2",topic="example"} 400983
+# HELP partitions_query_offset Current/Last logical offset query.
+# TYPE partitions_query_offset gauge
+partitions_query_offset{partition="-1",topic="example"} -1001
+partitions_query_offset{partition="0",topic="example"} -1001
+partitions_query_offset{partition="1",topic="example"} -1001
+partitions_query_offset{partition="2",topic="example"} -1001
+# HELP partitions_rx_ver_drops Dropped outdated messages.
+# TYPE partitions_rx_ver_drops counter
+partitions_rx_ver_drops{partition="-1",topic="example"} 0
+partitions_rx_ver_drops{partition="0",topic="example"} 0
+partitions_rx_ver_drops{partition="1",topic="example"} 0
+partitions_rx_ver_drops{partition="2",topic="example"} 0
+# HELP partitions_rxbytes Total number of bytes received for rxmsgs.
+# TYPE partitions_rxbytes counter
+partitions_rxbytes{partition="-1",topic="example"} 0
+partitions_rxbytes{partition="0",topic="example"} 283628
+partitions_rxbytes{partition="1",topic="example"} 10768
+partitions_rxbytes{partition="2",topic="example"} 105604
+# HELP partitions_rxmsgs Total number of messages consumed, not including ignored messages (due to offset, etc).
+# TYPE partitions_rxmsgs counter
+partitions_rxmsgs{partition="-1",topic="example"} 0
+partitions_rxmsgs{partition="0",topic="example"} 70907
+partitions_rxmsgs{partition="1",topic="example"} 2692
+partitions_rxmsgs{partition="2",topic="example"} 26401
+# HELP partitions_stored_leader_epoch Partition leader epoch of stored offset.
+# TYPE partitions_stored_leader_epoch counter
+partitions_stored_leader_epoch{partition="-1",topic="example"} -1
+partitions_stored_leader_epoch{partition="0",topic="example"} 0
+partitions_stored_leader_epoch{partition="1",topic="example"} 0
+partitions_stored_leader_epoch{partition="2",topic="example"} 0
+# HELP partitions_stored_offset Offset to be committed.
+# TYPE partitions_stored_offset gauge
+partitions_stored_offset{partition="-1",topic="example"} -1001
+partitions_stored_offset{partition="0",topic="example"} 502316
+partitions_stored_offset{partition="1",topic="example"} 381691
+partitions_stored_offset{partition="2",topic="example"} 400983
+# HELP partitions_txbytes Total number of bytes transmitted for txmsgs.
+# TYPE partitions_txbytes counter
+partitions_txbytes{partition="-1",topic="example"} 0
+partitions_txbytes{partition="0",topic="example"} 0
+partitions_txbytes{partition="1",topic="example"} 0
+partitions_txbytes{partition="2",topic="example"} 0
+# HELP partitions_txmsgs Total number of messages transmitted (produced).
+# TYPE partitions_txmsgs counter
+partitions_txmsgs{partition="-1",topic="example"} 0
+partitions_txmsgs{partition="0",topic="example"} 0
+partitions_txmsgs{partition="1",topic="example"} 0
+partitions_txmsgs{partition="2",topic="example"} 0
+# HELP partitions_xmit_msgq_bytes Number of bytes in xmit_msgq.
+# TYPE partitions_xmit_msgq_bytes gauge
+partitions_xmit_msgq_bytes{partition="-1",topic="example"} 0
+partitions_xmit_msgq_bytes{partition="0",topic="example"} 0
+partitions_xmit_msgq_bytes{partition="1",topic="example"} 0
+partitions_xmit_msgq_bytes{partition="2",topic="example"} 0
+# HELP partitions_xmit_msgq_cnt Number of messages ready to be produced in transmit queue.
+# TYPE partitions_xmit_msgq_cnt gauge
+partitions_xmit_msgq_cnt{partition="-1",topic="example"} 0
+partitions_xmit_msgq_cnt{partition="0",topic="example"} 0
+partitions_xmit_msgq_cnt{partition="1",topic="example"} 0
+partitions_xmit_msgq_cnt{partition="2",topic="example"} 0
+# HELP replyq Number of ops (callbacks, events, etc) waiting in queue for application to serve with rd_kafka_poll().
+# TYPE replyq gauge
+replyq{client_id="rdkafka",type="consumer"} 0
+# HELP rx Total number of responses received from Kafka brokers.
+# TYPE rx counter
+rx{client_id="rdkafka",type="consumer"} 108
+# HELP rx_bytes Total number of bytes received from Kafka brokers.
+# TYPE rx_bytes counter
+rx_bytes{client_id="rdkafka",type="consumer"} 1.231274e+06
+# HELP rxmsg_bytes Total number of message bytes (including framing) received from Kafka brokers.
+# TYPE rxmsg_bytes counter
+rxmsg_bytes{client_id="rdkafka",type="consumer"} 400000
+# HELP rxmsgs Total number of messages consumed, not including ignored messages (due to offset, etc), from Kafka brokers.
+# TYPE rxmsgs counter
+rxmsgs{client_id="rdkafka",type="consumer"} 100000
+# HELP simple_cnt Internal tracking of legacy vs new consumer API state.
+# TYPE simple_cnt gauge
+simple_cnt{client_id="rdkafka",type="consumer"} 0
+# HELP time Wall clock time in seconds since the epoch.
+# TYPE time counter
+time{client_id="rdkafka",type="consumer"} 1.743361411e+09
+# HELP topics_age Age of client's topic object (milliseconds).
+# TYPE topics_age gauge
+topics_age{topic="example"} 40039
+# HELP topics_batchcnt Batch message counts.
+# TYPE topics_batchcnt summary
+topics_batchcnt{topic="example",quantile="0.5"} 0
+topics_batchcnt{topic="example",quantile="0.75"} 0
+topics_batchcnt{topic="example",quantile="0.9"} 0
+topics_batchcnt{topic="example",quantile="0.95"} 0
+topics_batchcnt{topic="example",quantile="0.99"} 0
+topics_batchcnt{topic="example",quantile="0.9999"} 0
+topics_batchcnt_sum{topic="example"} 0
+topics_batchcnt_count{topic="example"} 0
+# HELP topics_batchsize Batch sizes in bytes.
+# TYPE topics_batchsize summary
+topics_batchsize{topic="example",quantile="0.5"} 0
+topics_batchsize{topic="example",quantile="0.75"} 0
+topics_batchsize{topic="example",quantile="0.9"} 0
+topics_batchsize{topic="example",quantile="0.95"} 0
+topics_batchsize{topic="example",quantile="0.99"} 0
+topics_batchsize{topic="example",quantile="0.9999"} 0
+topics_batchsize_sum{topic="example"} 0
+topics_batchsize_count{topic="example"} 0
+# HELP topics_metadata_age Age of metadata from broker for this topic (milliseconds).
+# TYPE topics_metadata_age gauge
+topics_metadata_age{topic="example"} 40046
+# HELP ts librdkafka's internal monotonic clock (microseconds).
+# TYPE ts counter
+ts{client_id="rdkafka",type="consumer"} 7.188851185e+09
+# HELP tx Total number of requests sent to Kafka brokers.
+# TYPE tx counter
+tx{client_id="rdkafka",type="consumer"} 109
+# HELP tx_bytes Total number of bytes transmitted to Kafka brokers.
+# TYPE tx_bytes counter
+tx_bytes{client_id="rdkafka",type="consumer"} 14930
+# HELP txmsg_bytes Total number of message bytes (including framing, such as per-Message framing and MessageSet/batch framing) transmitted to Kafka brokers.
+# TYPE txmsg_bytes counter
+txmsg_bytes{client_id="rdkafka",type="consumer"} 0
+# HELP txmsgs Total number of messages transmitted (produced) to Kafka brokers.
+# TYPE txmsgs counter
+txmsgs{client_id="rdkafka",type="consumer"} 0
