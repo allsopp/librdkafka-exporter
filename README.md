@@ -1,6 +1,6 @@
 # librdkafka-exporter
 
-[![Build](https://github.com/allsopp/librdkafka-exporter/actions/workflows/go.yml/badge.svg)](https://github.com/allsopp/librdkafka-exporter/actions/workflows/go.yml)
+[![Build](https://github.com/allsopp/librdkafka-exporter/actions/workflows/build.yml/badge.svg)](https://github.com/allsopp/librdkafka-exporter/actions/workflows/build.yml)
 
 Prometheus exporter for [librdkafka](https://github.com/confluentinc/librdkafka).
 
