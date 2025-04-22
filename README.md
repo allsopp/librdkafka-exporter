@@ -1,3 +1,5 @@
+[![Go](https://github.com/allsopp/librdkafka-exporter/actions/workflows/go.yml/badge.svg)](https://github.com/allsopp/librdkafka-exporter/actions/workflows/go.yml)
+
 # librdkafka-exporter
 
 Prometheus exporter for [librdkafka](https://github.com/confluentinc/librdkafka).
