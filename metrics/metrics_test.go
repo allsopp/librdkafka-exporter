@@ -18,7 +18,9 @@ func TestCollect(t *testing.T) {
 	data, err := os.Open("metrics.example.json")
 	require.Nil(t, err)
 	defer data.Close()
-	m.Read(data)
+
+	err = m.Read(data)
+	require.Nil(t, err)
 
 	expected, err := os.Open("metrics.example.prom")
 	require.Nil(t, err)
