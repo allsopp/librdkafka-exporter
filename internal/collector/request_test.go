@@ -33,7 +33,7 @@ func TestRequest(t *testing.T) {
 	}
 
 	fh, err := os.Open("request.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer fh.Close()
 
 	err = testutil.CollectAndCompare(
@@ -41,5 +41,5 @@ func TestRequest(t *testing.T) {
 		fh,
 		"foo",
 	)
-	require.Nil(t, err)
+	require.NoError(t, err)
 }

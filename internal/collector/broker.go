@@ -14,7 +14,7 @@ type Broker struct {
 	OutBufMsgCnt   float64 `json:"outbuf_msg_cnt"`
 	ReqTimeouts    float64 `json:"req_timeouts"`
 	RxBytes        float64 `json:"rxbytes"`
-	RxCorrIdErrs   float64 `json:"rxcorriderrs"`
+	RxCorrIDErrs   float64 `json:"rxcorriderrs"`
 	RxErrs         float64 `json:"rxerrs"`
 	Rx             float64 `json:"rx"`
 	RxIdle         float64 `json:"rxidle"`
@@ -228,7 +228,7 @@ func (b *Broker) Collect(ch chan<- prometheus.Metric) {
 			nil,
 		),
 		prometheus.CounterValue,
-		b.RxCorrIdErrs,
+		b.RxCorrIDErrs,
 		b.Name,
 		b.NodeName,
 		b.Source,
@@ -342,7 +342,7 @@ func (b *Broker) Collect(ch chan<- prometheus.Metric) {
 		b.IntLatency.Collect(
 			ch,
 			"brokers.int_latency",
-			labels[:],
+			labels,
 			b.Name,
 			b.NodeName,
 			b.Source,
@@ -353,7 +353,7 @@ func (b *Broker) Collect(ch chan<- prometheus.Metric) {
 		b.OutBufLatency.Collect(
 			ch,
 			"brokers.outbuf_latency",
-			labels[:],
+			labels,
 			b.Name,
 			b.NodeName,
 			b.Source,
@@ -364,7 +364,7 @@ func (b *Broker) Collect(ch chan<- prometheus.Metric) {
 		b.Throttle.Collect(
 			ch,
 			"brokers.throttle",
-			labels[:],
+			labels,
 			b.Name,
 			b.NodeName,
 			b.Source,

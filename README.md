@@ -51,8 +51,8 @@ Making a `POST /metrics` request will update the metric values.
 
 #### GET /metrics
 
-Making a `GET /metrics` request will return the metric values in the
-[Prometheus text exposition format](https://github.com/prometheus/docs/blob/main/content/docs/instrumenting/exposition_formats.md).
+Making a `GET /metrics` request will return the metric values in
+[Prometheus exposition format](https://github.com/prometheus/docs/blob/main/content/docs/instrumenting/exposition_formats.md).
 
 #### GET /health
 

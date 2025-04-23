@@ -8,13 +8,13 @@ import (
 
 type Partition struct {
 	Partition            float64 `json:"partition"`
-	AckedMsgId           float64 `json:"acked_msgid"`
+	AckedMsgID           float64 `json:"acked_msgid"`
 	AppOffset            float64 `json:"app_offset"`
 	CommittedLeaderEpoch float64 `json:"committed_leader_epoch"`
 	CommittedOffset      float64 `json:"committed_offset"`
 	ConsumerLag          float64 `json:"consumer_lag"`
 	ConsumerLagStored    float64 `json:"consumer_lag_stored"`
-	EofOffset            float64 `json:"eof_offset"`
+	EOFOffset            float64 `json:"eof_offset"`
 	FetchQCnt            float64 `json:"fetchq_cnt"`
 	FetchQSize           float64 `json:"fetchq_size"`
 	HiOffset             float64 `json:"hi_offset"`
@@ -220,7 +220,7 @@ func (p *Partition) Collect(ch chan<- prometheus.Metric, topic string) {
 			nil,
 		),
 		prometheus.GaugeValue,
-		p.EofOffset,
+		p.EOFOffset,
 		topic,
 		fmt.Sprint(p.Partition),
 	)
@@ -428,7 +428,7 @@ func (p *Partition) Collect(ch chan<- prometheus.Metric, topic string) {
 			nil,
 		),
 		prometheus.CounterValue,
-		float64(p.AckedMsgId),
+		float64(p.AckedMsgID),
 		topic,
 		fmt.Sprint(p.Partition),
 	)

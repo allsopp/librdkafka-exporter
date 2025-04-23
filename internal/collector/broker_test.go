@@ -31,7 +31,7 @@ func TestBroker(t *testing.T) {
 			OutBufMsgCnt:   4,
 			ReqTimeouts:    5,
 			RxBytes:        6,
-			RxCorrIdErrs:   7,
+			RxCorrIDErrs:   7,
 			RxErrs:         8,
 			Rx:             9,
 			RxIdle:         10,
@@ -49,7 +49,7 @@ func TestBroker(t *testing.T) {
 	}
 
 	fh, err := os.Open("broker.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer fh.Close()
 
 	err = testutil.CollectAndCompare(
@@ -76,5 +76,5 @@ func TestBroker(t *testing.T) {
 		"brokers_wakeups",
 		"brokers_zbuf_grow",
 	)
-	require.Nil(t, err)
+	require.NoError(t, err)
 }

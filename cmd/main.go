@@ -12,10 +12,10 @@ import (
 	"github.com/sethvargo/go-envconfig"
 )
 
-type Config struct {
+type config struct {
 	ListenAddr      string        `env:"LISTEN_ADDR, default=:8080"`
 	ReadTimeout     time.Duration `env:"READ_TIMEOUT, default=30s"`
-	WriteTimeout    time.Duration `env:"WRITE_TIMEOUT", default=30s`
+	WriteTimeout    time.Duration `env:"WRITE_TIMEOUT, default=30s"`
 	ShutdownTimeout time.Duration `env:"SHUTDOWN_TIMEOUT, default=5m"`
 }
 
@@ -34,7 +34,7 @@ func main() {
 		syscall.SIGTERM,
 	)
 
-	var cfg Config
+	var cfg config
 	err = envconfig.Process(ctx, &cfg)
 	if err != nil {
 		log.Fatal(err)

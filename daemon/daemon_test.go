@@ -28,11 +28,13 @@ func (m *MockMetrics) Handler() http.Handler {
 }
 
 func TestUpdateHandlerUnsupportedMediaType(t *testing.T) {
+	t.Parallel()
+
 	m := &MockMetrics{}
 	d := New(m)
 
 	req, err := http.NewRequest("POST", "/metrics", bytes.NewReader([]byte("{}")))
-	require.Nil(t, err)
+	require.NoError(t, err)
 	rr := httptest.NewRecorder()
 	d.router.ServeHTTP(rr, req)
 	assert.Equal(t, http.StatusUnsupportedMediaType, rr.Code)
@@ -40,12 +42,14 @@ func TestUpdateHandlerUnsupportedMediaType(t *testing.T) {
 }
 
 func TestUpdateHandlerInternalServerError(t *testing.T) {
+	t.Parallel()
+
 	m := &MockMetrics{}
 	m.On("Read", mock.Anything).Return(errors.New("mock error"))
 	d := New(m)
 
 	req, err := http.NewRequest("POST", "/metrics", bytes.NewReader([]byte("{}")))
-	require.Nil(t, err)
+	require.NoError(t, err)
 	req.Header.Set("Content-Type", "application/json")
 	rr := httptest.NewRecorder()
 	http.Handler(d.router).ServeHTTP(rr, req)
@@ -55,12 +59,14 @@ func TestUpdateHandlerInternalServerError(t *testing.T) {
 }
 
 func TestUpdateHandlerStatusAccepted(t *testing.T) {
+	t.Parallel()
+
 	m := &MockMetrics{}
 	m.On("Read", mock.Anything).Return(nil)
 	d := New(m)
 
 	req, err := http.NewRequest("POST", "/metrics", bytes.NewReader([]byte("{}")))
-	require.Nil(t, err)
+	require.NoError(t, err)
 	req.Header.Set("Content-Type", "application/json")
 	rr := httptest.NewRecorder()
 	http.Handler(d.router).ServeHTTP(rr, req)

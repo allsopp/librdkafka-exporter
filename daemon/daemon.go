@@ -12,6 +12,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
+// Config holds configuration for the daemon.
 type Config struct {
 	ListenAddr      string
 	ReadTimeout     time.Duration
@@ -19,16 +20,23 @@ type Config struct {
 	ShutdownTimeout time.Duration
 }
 
+// Metrics is the interface required for the daemon to support metrics
+// functionality, including the POST /metrics endpoint, which uses Read()
+// method to accept metric values in JSON format, and the GET /metrics
+// endpoint, which uses the Handler() method to returns metric values in
+// Prometheus exposition format.
 type Metrics interface {
 	Read(io.Reader) error
 	Handler() http.Handler
 }
 
+// Daemon holds internal state and contains no exported fields.
 type Daemon struct {
 	router  chi.Router
 	metrics Metrics
 }
 
+// New returns an instance of the daemon.
 func New(m Metrics) Daemon {
 	daemon := Daemon{
 		router:  chi.NewRouter(),
@@ -43,6 +51,11 @@ func New(m Metrics) Daemon {
 	return daemon
 }
 
+// Listen starts the HTTP server which handles connections.
+//
+// Cancelling the context will start a graceful shutdown of the server. The
+// server continues to run until all remaining active connections have been
+// served or the Config.ShutdownTimeout is reached.
 func (d Daemon) Listen(ctx context.Context, cfg Config) error {
 	srv := &http.Server{
 		Handler:      d.router,
@@ -62,11 +75,12 @@ func (d Daemon) Listen(ctx context.Context, cfg Config) error {
 		select {
 		case <-ctx.Done():
 			log.Printf("shutting down gracefully...")
-			shutdownCtx, _ := context.WithTimeout(
+			shutdownCtx, cancel := context.WithTimeout(
 				context.Background(),
 				cfg.ShutdownTimeout,
 			)
-			return srv.Shutdown(shutdownCtx)
+			defer cancel()
+			return fmt.Errorf("shutdown: %w", srv.Shutdown(shutdownCtx))
 		case err := <-ch:
 			return err
 		}

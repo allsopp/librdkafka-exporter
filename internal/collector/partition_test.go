@@ -27,13 +27,13 @@ func TestPartition(t *testing.T) {
 	mp := &MockPartition{
 		Partition{
 			Partition:            100,
-			AckedMsgId:           1,
+			AckedMsgID:           1,
 			AppOffset:            2,
 			CommittedLeaderEpoch: 3,
 			CommittedOffset:      4,
 			ConsumerLag:          5,
 			ConsumerLagStored:    6,
-			EofOffset:            7,
+			EOFOffset:            7,
 			FetchQCnt:            8,
 			FetchQSize:           9,
 			HiOffset:             10,
@@ -61,7 +61,7 @@ func TestPartition(t *testing.T) {
 	}
 
 	fh, err := os.Open("partition.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer fh.Close()
 
 	err = testutil.CollectAndCompare(
@@ -98,5 +98,5 @@ func TestPartition(t *testing.T) {
 		"partitions_xmit_msgq_bytes",
 		"partitions_xmit_msgq_cnt",
 	)
-	require.Nil(t, err)
+	require.NoError(t, err)
 }

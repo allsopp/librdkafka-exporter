@@ -1,4 +1,4 @@
-package metrics
+package metrics_test
 
 import (
 	_ "embed"
@@ -7,23 +7,26 @@ import (
 
 	"testing"
 
+	"github.com/allsopp/librdkafka-exporter/metrics"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 	"github.com/stretchr/testify/require"
 )
 
 func TestCollect(t *testing.T) {
-	m, err := New()
-	require.Nil(t, err)
+	t.Parallel()
+
+	m, err := metrics.New()
+	require.NoError(t, err)
 
 	data, err := os.Open("metrics.example.json")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer data.Close()
 
 	err = m.Read(data)
-	require.Nil(t, err)
+	require.NoError(t, err)
 
 	expected, err := os.Open("metrics.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer expected.Close()
 
 	err = testutil.CollectAndCompare(
@@ -113,5 +116,5 @@ func TestCollect(t *testing.T) {
 	if err != nil {
 		fmt.Print(err)
 	}
-	require.Nil(t, err)
+	require.NoError(t, err)
 }

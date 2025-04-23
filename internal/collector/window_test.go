@@ -39,9 +39,9 @@ func TestWindow(t *testing.T) {
 		},
 	}
 	fh, err := os.Open("window.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer fh.Close()
 
 	err = testutil.CollectAndCompare(mw, fh, "foo_bar_baz")
-	require.Nil(t, err)
+	require.NoError(t, err)
 }

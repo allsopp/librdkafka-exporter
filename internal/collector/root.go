@@ -6,7 +6,7 @@ import (
 )
 
 type Root struct {
-	ClientId         string             `json:"client_id"`
+	ClientID         string             `json:"client_id"`
 	Type             string             `json:"type"`
 	Age              float64            `json:"age"`
 	MetadataCacheCnt float64            `json:"metadata_cache_cnt"`
@@ -49,7 +49,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.Ts,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -59,7 +59,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 			nil),
 		prometheus.CounterValue,
 		r.Time,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 
@@ -72,7 +72,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.Age,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -84,7 +84,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.GaugeValue,
 		r.ReplyQ,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -96,7 +96,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.GaugeValue,
 		r.MsgCnt,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -108,7 +108,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.GaugeValue,
 		r.MsgSize,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -120,7 +120,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.MsgMax,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -132,7 +132,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.MsgSizeMax,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -144,7 +144,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.Tx,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -156,7 +156,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.TxBytes,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -168,7 +168,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.Rx,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -180,7 +180,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.RxBytes,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -192,7 +192,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.TxMsgs,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -204,7 +204,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.TxMsgBytes,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -216,7 +216,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.RxMsgs,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -228,7 +228,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.CounterValue,
 		r.RxMsgBytes,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -240,7 +240,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.GaugeValue,
 		r.SimpleCnt,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 	ch <- prometheus.MustNewConstMetric(
@@ -252,7 +252,7 @@ func (r *Root) Collect(ch chan<- prometheus.Metric) {
 		),
 		prometheus.GaugeValue,
 		r.MetadataCacheCnt,
-		r.ClientId,
+		r.ClientID,
 		r.Type,
 	)
 

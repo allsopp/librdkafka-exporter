@@ -29,7 +29,7 @@ func TestTopic(t *testing.T) {
 	}
 
 	fh, err := os.Open("topic.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer fh.Close()
 
 	err = testutil.CollectAndCompare(
@@ -38,5 +38,5 @@ func TestTopic(t *testing.T) {
 		"topics_age",
 		"topics_metadata_age",
 	)
-	require.Nil(t, err)
+	require.NoError(t, err)
 }

@@ -29,7 +29,7 @@ func TestConsumerGroup(t *testing.T) {
 	}
 
 	fh, err := os.Open("consumer_group.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer fh.Close()
 
 	err = testutil.CollectAndCompare(
@@ -39,5 +39,5 @@ func TestConsumerGroup(t *testing.T) {
 		"cgrp_rebalance_cnt",
 		"cgrp_assignment_size",
 	)
-	require.Nil(t, err)
+	require.NoError(t, err)
 }

@@ -12,7 +12,7 @@ func TestRoot(t *testing.T) {
 	getHelp = func(string) string { return "" }
 
 	r := &Root{
-		ClientId:         "client_id",
+		ClientID:         "client_id",
 		Type:             "type",
 		Age:              1,
 		MetadataCacheCnt: 2,
@@ -35,7 +35,7 @@ func TestRoot(t *testing.T) {
 	}
 
 	fh, err := os.Open("root.example.prom")
-	require.Nil(t, err)
+	require.NoError(t, err)
 	defer fh.Close()
 
 	err = testutil.CollectAndCompare(
@@ -62,5 +62,5 @@ func TestRoot(t *testing.T) {
 		"txmsg_bytes",
 		"txmsgs",
 	)
-	require.Nil(t, err)
+	require.NoError(t, err)
 }
