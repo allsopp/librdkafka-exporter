@@ -15,6 +15,8 @@ To get the library, run:
 
     go get github.com/allsopp/librdkafka-exporter
 
+The reference documentation for the latest release is available [here](https://pkg.go.dev/github.com/allsopp/librdkafka-exporter/metrics).
+
 ## Daemon
 
 First, clone this repository:

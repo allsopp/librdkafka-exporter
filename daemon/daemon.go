@@ -14,17 +14,18 @@ import (
 
 // Config holds configuration for the daemon.
 type Config struct {
-	ListenAddr      string
-	ReadTimeout     time.Duration
-	WriteTimeout    time.Duration
-	ShutdownTimeout time.Duration
+	ListenAddr      string        // Address and TCP port to listen on, e.g. "127.0.0.1:8080"
+	ReadTimeout     time.Duration // Amount of time allowed to read request
+	WriteTimeout    time.Duration // Amount of time allowed to write response
+	ShutdownTimeout time.Duration // Amount of time allowed for graceful shutdown
 }
 
 // Metrics is the interface required for the daemon to support metrics
-// functionality, including the POST /metrics endpoint, which uses Read()
+// functionality, including the POST /metrics endpoint, which uses the Read()
 // method to accept metric values in JSON format, and the GET /metrics
 // endpoint, which uses the Handler() method to returns metric values in
-// Prometheus exposition format.
+// Prometheus exposition format. See [metrics.Metrics] for the reference
+// implementation of this interface.
 type Metrics interface {
 	Read(io.Reader) error
 	Handler() http.Handler

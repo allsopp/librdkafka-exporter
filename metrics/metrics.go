@@ -21,6 +21,7 @@ type Metrics struct {
 	collector prometheus.Collector
 }
 
+// The global prefix used for metric names.
 const PREFIX = "librdkafka_"
 
 // New returns a pointer to a new instance of Metrics. Returns an error if
@@ -61,9 +62,12 @@ func (m Metrics) Handler() http.Handler {
 	return promhttp.HandlerFor(m.registry, opts)
 }
 
-// Read reads metrics values from the provided io.Reader and updates the
-// internal state of metric values. Holds a writer lock using a sync.RWMutex
-// while writing the metrics internally.
+// Read reads JSON metrics values from the provided [io.Reader] and updates the
+// internal state of metric values. The JSON should be of the format returned
+// from the [stats_cb] callback of librdkafka.  Holds a writer lock using a
+// sync.RWMutex while writing the metrics internally.
+//
+// [stats_cb]: https://github.com/confluentinc/librdkafka/blob/master/STATISTICS.md
 func (m Metrics) Read(rdr io.Reader) error {
 	var err error
 	data, err := io.ReadAll(rdr)
@@ -82,7 +86,7 @@ func (m Metrics) Read(rdr io.Reader) error {
 }
 
 // Write writes metric values in Prometheus exposition format to the provided
-// io.Writer. Holds a reader lock using a sync.RWMutex while reading the
+// [io.Writer]. Holds a reader lock using a sync.RWMutex while reading the
 // metrics internally.
 func (m Metrics) Write(w io.Writer) (int, error) {
 	var total int
