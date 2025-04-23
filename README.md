@@ -71,3 +71,9 @@ The daemon can be configured with the following environment variables:
 | `READ_TIMEOUT`       | Amount of time allowed to read request (defaults to `30s`)      |
 | `WRITE_TIMEOUT`      | Amount of time allowed to write response (defaults to `30s`)    |
 | `SHUTDOWN_TIMEOUT`   | Amount of time allowed for graceful shutdown (defaults to `5m`) |
+
+## See also
+
+- [librdkafka statistics](https://docs.confluent.io/platform/current/clients/librdkafka/html/md_STATISTICS.html)
+- [KIP-714: Client metrics and observability](https://cwiki.apache.org/confluence/display/KAFKA/KIP-714%3A+Client+metrics+and+observability)
+- [librdkafka-prometheus-exporter](https://github.com/mcolomerc/librdkafka-prometheus-exporter), a similar project
