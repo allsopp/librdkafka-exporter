@@ -1,4 +1,9 @@
 # Unreleased changes
+
+# v0.3.1 2025-04-23
+- Fix CHANGELOG.md
+
+# v0.3.0 2025-04-23
 - Documentation improvements
 
 # v0.2.0 2025-04-23
