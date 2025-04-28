@@ -1,5 +1,8 @@
 # Unreleased changes
+
+# v0.4.0 2025-04-28
 - Refactor metric.Metrics interface
+- Make graceful shutdown timeout more aggressive
 
 # v0.3.1 2025-04-23
 - Fix CHANGELOG.md

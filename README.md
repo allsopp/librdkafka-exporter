@@ -68,10 +68,10 @@ The daemon can be configured with the following environment variables:
 
 | Environment variable | Description |
 | --- | --- |
-| `LISTEN_ADDR`        | The address and TCP port to listen on (defaults to `:8080`)     |
-| `READ_TIMEOUT`       | Amount of time allowed to read request (defaults to `30s`)      |
-| `WRITE_TIMEOUT`      | Amount of time allowed to write response (defaults to `30s`)    |
-| `SHUTDOWN_TIMEOUT`   | Amount of time allowed for graceful shutdown (defaults to `5m`) |
+| `LISTEN_ADDR`        | The address and TCP port to listen on (defaults to `:8080`)      |
+| `READ_TIMEOUT`       | Amount of time allowed to read request (defaults to `30s`)       |
+| `WRITE_TIMEOUT`      | Amount of time allowed to write response (defaults to `30s`)     |
+| `SHUTDOWN_TIMEOUT`   | Amount of time allowed for graceful shutdown (defaults to `10s`) |
 
 ## See also
 
