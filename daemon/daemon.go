@@ -21,13 +21,13 @@ type Config struct {
 }
 
 // Metrics is the interface required for the daemon to support metrics
-// functionality, including the POST /metrics endpoint, which uses the Read()
-// method to accept metric values in JSON format, and the GET /metrics
-// endpoint, which uses the Handler() method to returns metric values in
-// Prometheus exposition format. See [metrics.Metrics] for the reference
+// functionality, including the POST /metrics endpoint, which uses the
+// ReadFrom() method to accept metric values in JSON format, and the GET
+// /metrics endpoint, which uses the Handler() method to returns metric values
+// in Prometheus exposition format. See [metrics.Metrics] for the reference
 // implementation of this interface.
 type Metrics interface {
-	Read(io.Reader) error
+	ReadFrom(io.Reader) error
 	Handler() http.Handler
 }
 
@@ -81,7 +81,11 @@ func (d Daemon) Listen(ctx context.Context, cfg Config) error {
 				cfg.ShutdownTimeout,
 			)
 			defer cancel()
-			return fmt.Errorf("shutdown: %w", srv.Shutdown(shutdownCtx))
+			err := srv.Shutdown(shutdownCtx)
+			if err != nil {
+				return fmt.Errorf("error shutting down: %w", err)
+			}
+			return nil
 		case err := <-ch:
 			return err
 		}
@@ -94,7 +98,7 @@ func (d Daemon) metricsHandler(w http.ResponseWriter, r *http.Request) {
 
 func (d Daemon) updateHandler(w http.ResponseWriter, r *http.Request) {
 	defer r.Body.Close()
-	err := d.metrics.Read(r.Body)
+	err := d.metrics.ReadFrom(r.Body)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "%s", err)

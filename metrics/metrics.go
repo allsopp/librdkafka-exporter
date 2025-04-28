@@ -36,19 +36,21 @@ func New() (*Metrics, error) {
 	r := prometheus.WrapRegistererWithPrefix(PREFIX, m.registry)
 	err := r.Register(m)
 	if err != nil {
-		return nil, fmt.Errorf("registration failed: %w", err)
+		return nil, fmt.Errorf("error registering metrics: %w", err)
 	}
 
 	return m, nil
 }
 
 // Describe sends descriptions for collected metrics on the provided channel.
+// This method holds a reader lock using a sync.RWMutex while collecting the
+// descriptions internally.
 func (m Metrics) Describe(ch chan<- *prometheus.Desc) {
 	m.collector.Describe(ch)
 }
 
-// Collect sends metric values on the provided channel. Holds a reader lock
-// using a sync.RWMutex while collecting the metrics internally.
+// Collect sends metric values on the provided channel. This method holds a
+// reader lock using a sync.RWMutex while collecting the metrics internally.
 func (m Metrics) Collect(ch chan<- prometheus.Metric) {
 	m.mutex.RLock()
 	defer m.mutex.RUnlock()
@@ -62,46 +64,39 @@ func (m Metrics) Handler() http.Handler {
 	return promhttp.HandlerFor(m.registry, opts)
 }
 
-// Read reads JSON metrics values from the provided [io.Reader] and updates the
-// internal state of metric values. The JSON should be of the format returned
-// from the [stats_cb] callback of librdkafka.  Holds a writer lock using a
-// sync.RWMutex while writing the metrics internally.
+// ReadFrom reads JSON metrics values from the provided [io.Reader] and updates
+// the internal state of metric values. The JSON should be of the format
+// returned from the [stats_cb] callback of librdkafka. Returns an io.EOF on
+// EOF. This method holds a writer lock using a sync.RWMutex while writing the
+// metrics internally.
 //
 // [stats_cb]: https://github.com/confluentinc/librdkafka/blob/master/STATISTICS.md
-func (m Metrics) Read(rdr io.Reader) error {
-	var err error
-	data, err := io.ReadAll(rdr)
-	if err != nil {
-		return fmt.Errorf("error reading data: %w", err)
-	}
-
+func (m Metrics) ReadFrom(r io.Reader) error {
+	d := json.NewDecoder(r)
 	m.mutex.Lock()
-	err = json.Unmarshal(data, m.collector)
+	err := d.Decode(m.collector)
 	m.mutex.Unlock()
 	if err != nil {
-		return fmt.Errorf("error unmarshalling JSON: %w", err)
+		return fmt.Errorf("error decoding metrics: %w", err)
 	}
-
 	return nil
 }
 
-// Write writes metric values in Prometheus exposition format to the provided
-// [io.Writer]. Holds a reader lock using a sync.RWMutex while reading the
-// metrics internally.
-func (m Metrics) Write(w io.Writer) (int, error) {
-	var total int
+// WriteTo writes metric values in Prometheus exposition format to the provided
+// [io.Writer]. This method holds a reader lock using a sync.RWMutex while
+// reading the metrics internally.
+func (m Metrics) WriteTo(w io.Writer) error {
 	m.mutex.RLock()
 	mfs, err := m.registry.Gather()
 	m.mutex.RUnlock()
 	if err != nil {
-		return total, fmt.Errorf("error gathering metrics: %w", err)
+		return fmt.Errorf("error gathering metrics: %w", err)
 	}
 	for _, mf := range mfs {
-		n, err := expfmt.MetricFamilyToText(w, mf)
-		total += n
+		_, err := expfmt.MetricFamilyToText(w, mf)
 		if err != nil {
-			return total, fmt.Errorf("error converting metric to text: %w", err)
+			return fmt.Errorf("error converting metric to text: %w", err)
 		}
 	}
-	return total, nil
+	return nil
 }

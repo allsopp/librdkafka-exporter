@@ -27,12 +27,12 @@ First, clone this repository:
 Then run the daemon:
 
     cd librdkafka-exporter
-    go run cmd/main.go
+    go run main.go
 
 Or build an executable and run that:
 
     cd librdkafka-exporter
-    go build -o main cmd/main.go
+    go build -o main main.go
     ./main
 
 Alternatively, an example `Dockerfile` for building a Docker container image to run the

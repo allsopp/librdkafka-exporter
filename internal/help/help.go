@@ -19,6 +19,6 @@ func init() {
 	var err error
 	help, err = objx.FromJSON(json)
 	if err != nil {
-		log.Fatalf("loading help text failed: %s", err)
+		log.Fatalf("error loading help text: %v", err)
 	}
 }

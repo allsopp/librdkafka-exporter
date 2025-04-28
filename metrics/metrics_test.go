@@ -22,7 +22,7 @@ func TestCollect(t *testing.T) {
 	require.NoError(t, err)
 	defer data.Close()
 
-	err = m.Read(data)
+	err = m.ReadFrom(data)
 	require.NoError(t, err)
 
 	expected, err := os.Open("metrics.example.prom")

@@ -17,9 +17,9 @@ type MockMetrics struct {
 	mock.Mock
 }
 
-func (m *MockMetrics) Read(rdr io.Reader) error {
-	args := m.Called(rdr)
-	return args.Error(0)
+func (m *MockMetrics) ReadFrom(r io.Reader) error {
+	args := m.Called(r)
+	return args.Error(1)
 }
 
 func (m *MockMetrics) Handler() http.Handler {
@@ -45,10 +45,10 @@ func TestUpdateHandlerInternalServerError(t *testing.T) {
 	t.Parallel()
 
 	m := &MockMetrics{}
-	m.On("Read", mock.Anything).Return(errors.New("mock error"))
+	m.On("ReadFrom", mock.Anything).Return(int64(0), errors.New("mock error"))
 	d := New(m)
 
-	req, err := http.NewRequest("POST", "/metrics", bytes.NewReader([]byte("{}")))
+	req, err := http.NewRequest("POST", "/metrics", new(bytes.Buffer))
 	require.NoError(t, err)
 	req.Header.Set("Content-Type", "application/json")
 	rr := httptest.NewRecorder()
@@ -62,10 +62,10 @@ func TestUpdateHandlerStatusAccepted(t *testing.T) {
 	t.Parallel()
 
 	m := &MockMetrics{}
-	m.On("Read", mock.Anything).Return(nil)
+	m.On("ReadFrom", mock.Anything).Return(int64(0), nil)
 	d := New(m)
 
-	req, err := http.NewRequest("POST", "/metrics", bytes.NewReader([]byte("{}")))
+	req, err := http.NewRequest("POST", "/metrics", new(bytes.Buffer))
 	require.NoError(t, err)
 	req.Header.Set("Content-Type", "application/json")
 	rr := httptest.NewRecorder()

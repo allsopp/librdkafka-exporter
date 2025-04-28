@@ -1,4 +1,5 @@
 # Unreleased changes
+- Refactor metric.Metrics interface
 
 # v0.3.1 2025-04-23
 - Fix CHANGELOG.md
