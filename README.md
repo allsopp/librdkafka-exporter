@@ -1,6 +1,7 @@
 # librdkafka-exporter
 
 [![Build](https://github.com/allsopp/librdkafka-exporter/actions/workflows/build.yml/badge.svg)](https://github.com/allsopp/librdkafka-exporter/actions/workflows/build.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/allsopp/librdkafka-exporter.svg)](https://pkg.go.dev/github.com/allsopp/librdkafka-exporter)
 
 Prometheus exporter for [librdkafka](https://github.com/confluentinc/librdkafka).
 
@@ -21,7 +22,7 @@ The reference documentation for the latest release is available [here](https://p
 
 First, clone this repository:
 
-    git clone github.com/allsopp/librdkafka-exporter
+    git clone https://github.com/allsopp/librdkafka-exporter
 
 Then run the daemon:
 
