@@ -1,3 +1,8 @@
+/*
+Package daemon implements a daemon to import librdkafka metrics from JSON and
+export librdkafka metrics in Prometheus exposition format. An example command
+to run the daemon is provided at the root of this distribution.
+*/
 package daemon
 
 import (
@@ -24,8 +29,10 @@ type Config struct {
 // functionality, including the POST /metrics endpoint, which uses the
 // ReadFrom() method to accept metric values in JSON format, and the GET
 // /metrics endpoint, which uses the Handler() method to returns metric values
-// in Prometheus exposition format. See [metrics.Metrics] for the reference
-// implementation of this interface.
+// in Prometheus exposition format.
+//
+// See [github.com/allsopp/librdkafka-exporter/metrics.Metrics] for the
+// reference implementation of this interface.
 type Metrics interface {
 	ReadFrom(io.Reader) error
 	Handler() http.Handler

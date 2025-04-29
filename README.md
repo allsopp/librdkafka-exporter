@@ -7,7 +7,7 @@ Prometheus exporter for [librdkafka](https://github.com/confluentinc/librdkafka)
 
 This repository includes:
 
- - A Go library to export librdkafka stats in Prometheus exposition format.
+ - A Go library to export librdkafka metrics in Prometheus exposition format.
  - A daemon that exposes the same functionality over an HTTP API.
 
 ## Library

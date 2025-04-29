@@ -1,3 +1,8 @@
+/*
+Package metrics implements the [Metrics] type which can import and export
+librdkafka metrics in various ways. See the documentation for each method for
+more detail.
+*/
 package metrics
 
 import (
@@ -43,21 +48,21 @@ func New() (*Metrics, error) {
 }
 
 // Describe sends descriptions for collected metrics on the provided channel.
-// This method holds a reader lock using a sync.RWMutex while collecting the
+// This method holds a reader lock using a [sync.RWMutex] while collecting the
 // descriptions internally.
 func (m Metrics) Describe(ch chan<- *prometheus.Desc) {
 	m.collector.Describe(ch)
 }
 
 // Collect sends metric values on the provided channel. This method holds a
-// reader lock using a sync.RWMutex while collecting the metrics internally.
+// reader lock using a [sync.RWMutex] while collecting the metrics internally.
 func (m Metrics) Collect(ch chan<- prometheus.Metric) {
 	m.mutex.RLock()
 	defer m.mutex.RUnlock()
 	m.collector.Collect(ch)
 }
 
-// Handler returns an http.Handler suitable for serving metrics in the
+// Handler returns an [http.Handler] suitable for serving metrics in the
 // Prometheus exposition format.
 func (m Metrics) Handler() http.Handler {
 	opts := promhttp.HandlerOpts{}
@@ -66,9 +71,8 @@ func (m Metrics) Handler() http.Handler {
 
 // ReadFrom reads JSON metrics values from the provided [io.Reader] and updates
 // the internal state of metric values. The JSON should be of the format
-// returned from the [stats_cb] callback of librdkafka. Returns an io.EOF on
-// EOF. This method holds a writer lock using a sync.RWMutex while writing the
-// metrics internally.
+// returned from the [stats_cb] callback of librdkafka. This method holds a
+// writer lock using a [sync.RWMutex] while writing the metrics internally.
 //
 // [stats_cb]: https://github.com/confluentinc/librdkafka/blob/master/STATISTICS.md
 func (m Metrics) ReadFrom(r io.Reader) error {
@@ -83,7 +87,7 @@ func (m Metrics) ReadFrom(r io.Reader) error {
 }
 
 // WriteTo writes metric values in Prometheus exposition format to the provided
-// [io.Writer]. This method holds a reader lock using a sync.RWMutex while
+// [io.Writer]. This method holds a reader lock using a [sync.RWMutex] while
 // reading the metrics internally.
 func (m Metrics) WriteTo(w io.Writer) error {
 	m.mutex.RLock()
