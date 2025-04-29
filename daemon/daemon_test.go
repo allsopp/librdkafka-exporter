@@ -19,7 +19,7 @@ type MockMetrics struct {
 
 func (m *MockMetrics) ReadFrom(r io.Reader) error {
 	args := m.Called(r)
-	return args.Error(1)
+	return args.Error(0)
 }
 
 func (m *MockMetrics) Handler() http.Handler {
@@ -45,7 +45,7 @@ func TestUpdateHandlerInternalServerError(t *testing.T) {
 	t.Parallel()
 
 	m := &MockMetrics{}
-	m.On("ReadFrom", mock.Anything).Return(int64(0), errors.New("mock error"))
+	m.On("ReadFrom", mock.Anything).Return(errors.New("mock error"))
 	d := New(m)
 
 	req, err := http.NewRequest("POST", "/metrics", new(bytes.Buffer))
@@ -62,7 +62,7 @@ func TestUpdateHandlerStatusAccepted(t *testing.T) {
 	t.Parallel()
 
 	m := &MockMetrics{}
-	m.On("ReadFrom", mock.Anything).Return(int64(0), nil)
+	m.On("ReadFrom", mock.Anything).Return(nil)
 	d := New(m)
 
 	req, err := http.NewRequest("POST", "/metrics", new(bytes.Buffer))
