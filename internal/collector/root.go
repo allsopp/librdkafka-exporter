@@ -38,7 +38,7 @@ func (r *Root) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (r *Root) Collect(ch chan<- prometheus.Metric) {
-	var labels = []string{"client_id", "type"}
+	labels := []string{"client_id", "type"}
 
 	ch <- prometheus.MustNewConstMetric(
 		prometheus.NewDesc(

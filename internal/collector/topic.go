@@ -14,7 +14,7 @@ type Topic struct {
 }
 
 func (t *Topic) Collect(ch chan<- prometheus.Metric) {
-	var labels = []string{"topic"}
+	labels := []string{"topic"}
 
 	ch <- prometheus.MustNewConstMetric(
 		prometheus.NewDesc(

@@ -3,15 +3,29 @@ package metrics
 import (
 	"bytes"
 	_ "embed"
+	"errors"
 	"fmt"
 	"io"
 	"os"
 	"testing"
+	"testing/iotest"
 
 	"github.com/prometheus/client_golang/prometheus/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestReadFrom(t *testing.T) {
+	t.Parallel()
+
+	m, err := New()
+	require.NoError(t, err)
+
+	expected := errors.New("mock error")
+	r := iotest.ErrReader(expected)
+	actual := m.ReadFrom(r)
+	assert.ErrorIs(t, actual, expected)
+}
 
 func TestWriteTo(t *testing.T) {
 	t.Parallel()

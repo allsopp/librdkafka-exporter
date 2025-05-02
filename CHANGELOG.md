@@ -1,6 +1,9 @@
 # Unreleased changes
+
+# v0.4.2 2025-05-07
 - Add more tests
 - Documentation improvements
+- Bump to Go 1.23
 
 # v0.4.1 2025-04-29
 - Documentation improvements

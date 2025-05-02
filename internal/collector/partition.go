@@ -41,7 +41,7 @@ type Partition struct {
 }
 
 func (p *Partition) Collect(ch chan<- prometheus.Metric, topic string) {
-	var labels = []string{"topic", "partition"}
+	labels := []string{"topic", "partition"}
 
 	ch <- prometheus.MustNewConstMetric(
 		prometheus.NewDesc(

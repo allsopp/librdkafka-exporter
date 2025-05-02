@@ -36,7 +36,7 @@ type Broker struct {
 }
 
 func (b *Broker) Collect(ch chan<- prometheus.Metric) {
-	var labels = []string{"name", "nodename", "source"}
+	labels := []string{"name", "nodename", "source"}
 
 	ch <- prometheus.MustNewConstMetric(
 		prometheus.NewDesc(

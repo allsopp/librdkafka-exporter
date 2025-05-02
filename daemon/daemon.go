@@ -6,10 +6,7 @@ example command to run the daemon is provided at the root of this distribution.
 package daemon
 
 import (
-	"context"
-	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"time"
 
@@ -57,59 +54,4 @@ func New(m Metrics) Daemon {
 	daemon.router.With(act).Post("/metrics", daemon.updateHandler)
 	daemon.router.Get("/metrics", daemon.metricsHandler)
 	return daemon
-}
-
-// Listen starts the HTTP server which handles connections.
-//
-// Cancelling the context will start a graceful shutdown of the server. The
-// server continues to run until all remaining active connections have been
-// served or the [Config.ShutdownTimeout] is reached.
-func (d Daemon) Listen(ctx context.Context, cfg Config) error {
-	srv := &http.Server{
-		Handler:      d.router,
-		Addr:         cfg.ListenAddr,
-		ReadTimeout:  cfg.ReadTimeout,
-		WriteTimeout: cfg.WriteTimeout,
-	}
-
-	ch := make(chan error)
-
-	go func() {
-		log.Printf("listening on %s", cfg.ListenAddr)
-		ch <- srv.ListenAndServe()
-	}()
-
-	for {
-		select {
-		case <-ctx.Done():
-			log.Printf("shutting down gracefully...")
-			shutdownCtx, cancel := context.WithTimeout(
-				context.Background(),
-				cfg.ShutdownTimeout,
-			)
-			defer cancel()
-			err := srv.Shutdown(shutdownCtx)
-			if err != nil {
-				return fmt.Errorf("error shutting down: %w", err)
-			}
-			return nil
-		case err := <-ch:
-			return err
-		}
-	}
-}
-
-func (d Daemon) metricsHandler(w http.ResponseWriter, r *http.Request) {
-	d.metrics.Handler().ServeHTTP(w, r)
-}
-
-func (d Daemon) updateHandler(w http.ResponseWriter, r *http.Request) {
-	defer r.Body.Close()
-	err := d.metrics.ReadFrom(r.Body)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "%s", err)
-		return
-	}
-	w.WriteHeader(http.StatusNoContent)
 }
