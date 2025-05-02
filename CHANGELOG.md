@@ -1,4 +1,5 @@
 # Unreleased changes
+- Add more tests
 
 # v0.4.1 2025-04-29
 - Documentation improvements

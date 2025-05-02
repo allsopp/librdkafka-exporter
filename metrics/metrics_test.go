@@ -1,21 +1,22 @@
-package metrics_test
+package metrics
 
 import (
+	"bytes"
 	_ "embed"
 	"fmt"
+	"io"
 	"os"
-
 	"testing"
 
-	"github.com/allsopp/librdkafka-exporter/metrics"
 	"github.com/prometheus/client_golang/prometheus/testutil"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-func TestCollect(t *testing.T) {
+func TestWriteTo(t *testing.T) {
 	t.Parallel()
 
-	m, err := metrics.New()
+	m, err := New()
 	require.NoError(t, err)
 
 	data, err := os.Open("metrics.example.json")
@@ -25,12 +26,43 @@ func TestCollect(t *testing.T) {
 	err = m.ReadFrom(data)
 	require.NoError(t, err)
 
+	getBytesFromFile := func(filename string) ([]byte, error) {
+		file, err := os.Open(filename)
+		if err != nil {
+			return nil, err
+		}
+		defer file.Close()
+		return io.ReadAll(file)
+	}
+
+	expected, err := getBytesFromFile("metrics.example.prom")
+	require.NoError(t, err)
+
+	var actual bytes.Buffer
+	err = m.WriteTo(&actual)
+	require.NoError(t, err)
+
+	assert.Equal(t, string(expected), actual.String())
+}
+
+func TestCollect(t *testing.T) {
+	t.Parallel()
+
+	m, err := New()
+	require.NoError(t, err)
+
+	data, err := os.Open("metrics.example.json")
+	require.NoError(t, err)
+	defer data.Close()
+	err = m.ReadFrom(data)
+	require.NoError(t, err)
+
 	expected, err := os.Open("metrics.example.prom")
 	require.NoError(t, err)
 	defer expected.Close()
 
-	err = testutil.CollectAndCompare(
-		m,
+	err = testutil.GatherAndCompare(
+		m.registry,
 		expected,
 		"age",
 		"ts",
