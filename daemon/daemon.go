@@ -1,7 +1,7 @@
 /*
 Package daemon implements a daemon to import librdkafka metrics from JSON and
-export librdkafka metrics in Prometheus exposition format. An example command
-to run the daemon is provided at the root of this distribution.
+export librdkafka metrics in Prometheus exposition format over an HTTP API. An
+example command to run the daemon is provided at the root of this distribution.
 */
 package daemon
 
@@ -63,7 +63,7 @@ func New(m Metrics) Daemon {
 //
 // Cancelling the context will start a graceful shutdown of the server. The
 // server continues to run until all remaining active connections have been
-// served or the Config.ShutdownTimeout is reached.
+// served or the [Config.ShutdownTimeout] is reached.
 func (d Daemon) Listen(ctx context.Context, cfg Config) error {
 	srv := &http.Server{
 		Handler:      d.router,

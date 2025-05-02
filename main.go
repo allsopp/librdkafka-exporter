@@ -1,17 +1,16 @@
 /*
 Run a daemon to import and export librdkafka metrics over an HTTP API.
 
-# Configuration
-
 The daemon can be configured by setting environment variables, which are
 documented in the following subsections.
 
-## Listen address
+# Listen address
 
 The daemon listens on the configured LISTEN_ADDR, which should be specified in
-the format "host:port", where port is a TCP port number. This defaults to ":8080"
+the format "host:port", where port is a TCP port number. This defaults to
+":8080", which corresponds to TCP port 8080 on all interfaces.
 
-## Timeouts
+# Timeouts
 
 The daemon will use the values of READ_TIMEOUT, WRITE_TIMEOUT, and
 SHUTDOWN_TIMEOUT as the time allowed for server reads, server writes, and
@@ -20,9 +19,9 @@ compatible with [time.ParseDuration], for example "500ms", "30s", or "1m".
 
 The default values for the timeouts are:
 
-  - READ_TIMEOUT defaults to `30s`
-  - WRITE_TIMEOUT defaults to `30s`
-  - SHUTDOWN_TIMEOUT defaults to `10s`
+  - READ_TIMEOUT defaults to 30s
+  - WRITE_TIMEOUT defaults to 30s
+  - SHUTDOWN_TIMEOUT defaults to 10s
 */
 package main
 
